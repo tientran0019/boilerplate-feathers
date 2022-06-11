@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-feathers",
-  "description": "",
+  "description": "A boilerplate for a backend using Feathers",
   "version": "1.0.0",
   "homepage": "",
   "private": false,

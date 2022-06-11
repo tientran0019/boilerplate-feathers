@@ -1,41 +1,49 @@
-const { authenticate } = require('@feathersjs/authentication').hooks;
+/* --------------------------------------------------------
+* Author Tien Tran
+* Email tientran0019@gmail.com
+* Phone 0972970075
+*
+* Created: 2022-06-11 14:03:27
+*------------------------------------------------------- */
+import { hooks as authenticationHook } from '@feathersjs/authentication';
 
-const {
-  hashPassword, protect
-} = require('@feathersjs/authentication-local').hooks;
+import { hooks as authenticationLocalHook } from '@feathersjs/authentication-local';
 
-module.exports = {
-  before: {
-    all: [],
-    find: [ authenticate('jwt') ],
-    get: [ authenticate('jwt') ],
-    create: [ hashPassword('password') ],
-    update: [ hashPassword('password'),  authenticate('jwt') ],
-    patch: [ hashPassword('password'),  authenticate('jwt') ],
-    remove: [ authenticate('jwt') ]
-  },
+const { authenticate } = authenticationHook;
+const { hashPassword, protect } = authenticationLocalHook;
 
-  after: {
-    all: [
-      // Make sure the password field is never sent to the client
-      // Always must be the last hook
-      protect('password')
-    ],
-    find: [],
-    get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
-  },
+export default {
+	before: {
+		all: [],
+		find: [authenticate('jwt')],
+		get: [authenticate('jwt')],
+		create: [hashPassword('password')],
+		update: [hashPassword('password'), authenticate('jwt')],
+		patch: [hashPassword('password'), authenticate('jwt')],
+		remove: [authenticate('jwt')],
+	},
 
-  error: {
-    all: [],
-    find: [],
-    get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
-  }
+	after: {
+		all: [
+			// Make sure the password field is never sent to the client
+			// Always must be the last hook
+			protect('password'),
+		],
+		find: [],
+		get: [],
+		create: [],
+		update: [],
+		patch: [],
+		remove: [],
+	},
+
+	error: {
+		all: [],
+		find: [],
+		get: [],
+		create: [],
+		update: [],
+		patch: [],
+		remove: [],
+	},
 };

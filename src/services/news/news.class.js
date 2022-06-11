@@ -1,5 +1,15 @@
-const { Service } = require('feathers-mongoose');
+/* --------------------------------------------------------
+* Author Tien Tran
+* Email tientran0019@gmail.com
+* Phone 0972970075
+*
+* Created: 2022-06-11 13:55:17
+*------------------------------------------------------- */
 
-exports.News = class News extends Service {
-  
-};
+import { Service } from 'feathers-mongoose';
+
+class News extends Service {
+
+}
+
+export default News;
