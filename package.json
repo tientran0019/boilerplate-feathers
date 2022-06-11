@@ -1,0 +1,83 @@
+{
+  "name": "boilerplate-feathers",
+  "description": "",
+  "version": "1.0.0",
+  "homepage": "",
+  "private": false,
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Tien Tran",
+    "email": "tientran0019@gmail.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^16.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "npm run dev",
+    "dev": "nodemon src/ --exec babel-node",
+    "debug": "nodemon --inspect=3004 src/ --exec babel-node",
+    "prod": "NODE_ENV=production babel-node .",
+    "prod:pm2": "NODE_ENV=production pm2 start src/ --name api --interpreter babel-node",
+    "staging": "babel-node .",
+    "staging:pm2": "pm2 start src/ --name api-dev --interpreter babel-node",
+    "test": "yarn run lint && yarn run jest",
+    "jest": "jest --forceExit"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": []
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^4.5.15",
+    "@feathersjs/authentication-local": "^4.5.15",
+    "@feathersjs/authentication-oauth": "^4.5.15",
+    "@feathersjs/configuration": "^4.5.15",
+    "@feathersjs/errors": "^4.5.15",
+    "@feathersjs/express": "^4.5.15",
+    "@feathersjs/feathers": "^4.5.15",
+    "@feathersjs/socketio": "^4.5.15",
+    "@feathersjs/transport-commons": "^4.5.15",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "feathers-mongoose": "^8.5.1",
+    "feathers-swagger": "^1.2.2",
+    "feathers-versionate": "^0.2.2",
+    "helmet": "^5.1.0",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^6.3.6",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/node": "^7.17.10",
+    "@babel/plugin-proposal-optional-chaining": "^7.17.12",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-loopback": "^13.1.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "nsp": "^3.2.1",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16"
+  }
+}
