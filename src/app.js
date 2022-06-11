@@ -17,16 +17,16 @@ import configuration from '@feathersjs/configuration';
 import express from '@feathersjs/express';
 import socketio from '@feathersjs/socketio';
 
-import logger from './logger';
+import logger from './utils/logger';
 import middleware from './middleware';
 import services from './services';
 import appHooks from './app.hooks';
-import channels from './channels';
+import channels from './utils/channels';
 
-import authentication from './authentication';
+import authentication from './utils/authentication';
 
-import mongoose from './mongoose';
-import swagger from './swagger';
+import mongoose from './utils/mongoose';
+import swagger from './utils/swagger';
 
 const app = express(feathers());
 
